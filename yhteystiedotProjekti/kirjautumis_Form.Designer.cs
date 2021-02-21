@@ -150,6 +150,7 @@ namespace yhteystiedotProjekti
             // labelMeneKirjaut
             // 
             this.labelMeneKirjaut.AutoSize = true;
+            this.labelMeneKirjaut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelMeneKirjaut.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMeneKirjaut.ForeColor = System.Drawing.Color.White;
             this.labelMeneKirjaut.Location = new System.Drawing.Point(344, 446);
@@ -162,6 +163,7 @@ namespace yhteystiedotProjekti
             // labelMeneRek
             // 
             this.labelMeneRek.AutoSize = true;
+            this.labelMeneRek.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelMeneRek.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMeneRek.ForeColor = System.Drawing.Color.White;
             this.labelMeneRek.Location = new System.Drawing.Point(3, 443);
@@ -174,6 +176,7 @@ namespace yhteystiedotProjekti
             // button_registeroidy
             // 
             this.button_registeroidy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(194)))), ((int)(((byte)(129)))));
+            this.button_registeroidy.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_registeroidy.ForeColor = System.Drawing.Color.White;
             this.button_registeroidy.Location = new System.Drawing.Point(405, 340);
             this.button_registeroidy.Name = "button_registeroidy";
@@ -212,6 +215,7 @@ namespace yhteystiedotProjekti
             this.pbProfiilikuva.Location = new System.Drawing.Point(415, 251);
             this.pbProfiilikuva.Name = "pbProfiilikuva";
             this.pbProfiilikuva.Size = new System.Drawing.Size(122, 83);
+            this.pbProfiilikuva.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProfiilikuva.TabIndex = 15;
             this.pbProfiilikuva.TabStop = false;
             // 
@@ -314,6 +318,7 @@ namespace yhteystiedotProjekti
             // button_kirjautumis
             // 
             this.button_kirjautumis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(194)))), ((int)(((byte)(129)))));
+            this.button_kirjautumis.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button_kirjautumis.ForeColor = System.Drawing.Color.White;
             this.button_kirjautumis.Location = new System.Drawing.Point(48, 198);
             this.button_kirjautumis.Name = "button_kirjautumis";
@@ -378,11 +383,12 @@ namespace yhteystiedotProjekti
             // 
             // timer1
             // 
-            this.timer1.Interval = 10;
+            this.timer1.Interval = 15;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // timer2
             // 
+            this.timer2.Interval = 15;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // kirjautumis_Form
