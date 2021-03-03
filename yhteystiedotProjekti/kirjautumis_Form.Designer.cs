@@ -326,6 +326,7 @@ namespace yhteystiedotProjekti
             this.button_kirjautumis.TabIndex = 5;
             this.button_kirjautumis.Text = "Kirjaudu";
             this.button_kirjautumis.UseVisualStyleBackColor = false;
+            this.button_kirjautumis.Click += new System.EventHandler(this.button_kirjautumis_Click);
             // 
             // tbSalasana
             // 

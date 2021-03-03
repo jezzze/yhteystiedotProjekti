@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace yhteystiedotProjekti
 {
@@ -30,8 +31,11 @@ namespace yhteystiedotProjekti
         {
             string etunimi = tbEnimi.Text;
             string sukunimi = tbSnimi.Text;
-            string kayttajanimi = tbKayttajanimi.Text;
-            string salasana = tbSalasana.Text;
+            string kayttajanimi = tbKäyttäjänimiRek.Text;
+            string salasana = tbSalasanaRek.Text;
+
+            USER user = new USER();
+
 
             if(tarkistafields("rekisteroidy"))
             {
@@ -39,7 +43,28 @@ namespace yhteystiedotProjekti
                 pbProfiilikuva.Image.Save(pic, pbProfiilikuva.Image.RawFormat);
 
                 //pitää tarkistaa jos käyttäjänimi on jo olemassa
+                //pitää sijoittaa uusi käyttäjä tietokantaan
+                if(!user.kayttajanimiExists(kayttajanimi)) //tarkistan että onko kääyttäjänimi olemassa
+                {
+                    if(user.insertUser(etunimi,sukunimi,kayttajanimi,salasana,pic))
+                    {
+                        MessageBox.Show("Rekisteröinti onnistui", "Rekisteröinti", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Jotain meni väärin", "Rekisteröinti", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Tämä käytäjänimi on jo olemassa Kokeile uutta ", "Väärä Käyttäjänimi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
 
+
+            }
+            else
+            {
+                MessageBox.Show("* Pakolliset kohdat - Käyttäjänimi / salasana / kuva *", "Rekisteröinti", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -51,7 +76,7 @@ namespace yhteystiedotProjekti
 
             if(operation == "rekisteroidy")
             {
-                if(tbKäyttäjänimiRek.Text.Equals("") || tbSalasanaRek.Text.Equals("") || pbProfiilikuva.Image == null)
+                if(tbKäyttäjänimiRek.Text.Trim().Equals("") || tbSalasanaRek.Text.Trim().Equals("") || pbProfiilikuva.Image == null)
                 {
                     check = false;
                 }
@@ -62,7 +87,7 @@ namespace yhteystiedotProjekti
             }
             else if(operation == "login")
             {
-                if(tbKayttajanimi.Text.Equals("") || tbSalasana.Text.Equals(""))
+                if(tbKayttajanimi.Text.Trim().Trim().Equals("") || tbSalasana.Text.Trim().Equals(""))
                 {
                     check = false;
                 }
@@ -150,6 +175,45 @@ namespace yhteystiedotProjekti
                 labelMeneKirjaut.Enabled = true;
                 labelMeneRek.Enabled = true;
             }
+        }
+        //kirjautumis nappi
+        private void button_kirjautumis_Click(object sender, EventArgs e)
+        {
+            MY_DB db = new MY_DB();
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            DataTable table = new DataTable();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `kayttaja` WHERE `käyttäjänimi`= @un AND `salasana`= @pass", db.getConnection);
+
+            command.Parameters.Add("@un", MySqlDbType.VarChar).Value = tbKayttajanimi.Text;
+            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = tbSalasana.Text;
+
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+
+            if(tarkistafields("login")) // Tarkistan että onko tyhjiä kohtia
+            {
+                if (table.Rows.Count > 0) // Tarkistan että onko tämä käyttäjä olemassa
+                {
+                    int userid = Convert.ToInt32(table.Rows[0][0].ToString());
+                    // näyttää pää formin 
+                    this.DialogResult = DialogResult.OK;
+                }
+                else
+                {
+                    MessageBox.Show("Väärä käyttäjänimi tai salasana", "Kirjautumisen Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Tyhjä käyttäjänimi tai salasana", "Kirjautumisen Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
         }
     }
 }

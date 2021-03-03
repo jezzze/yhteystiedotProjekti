@@ -26,7 +26,7 @@ namespace yhteystiedotProjekti
             DataTable table = new DataTable();
 
             adapter.Fill(table);
-
+            // jos käittäjänimi on olemassa niin silloin return on true
             if(table.Rows.Count > 0)
             {
                 return true;
@@ -36,6 +36,7 @@ namespace yhteystiedotProjekti
                 return false;
             }
         }
+        //sijoitan uuden käyttäjän
         public bool insertUser(string etunimi, string sukunimi, string kayttajanimi, string salasana, MemoryStream kuva)
         {
             MySqlCommand command = new MySqlCommand("INSERT INTO `kayttaja`(`etunimi`, `sukunimi`, `käyttäjänimi`, `salasana`, `kuva`) VALUES (@fn,@ln,@un,@pass,@pic)", db.getConnection);
