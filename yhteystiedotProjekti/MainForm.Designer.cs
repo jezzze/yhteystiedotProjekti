@@ -68,7 +68,7 @@ namespace yhteystiedotProjekti
             // 
             this.buttonSulje.BackColor = System.Drawing.Color.Transparent;
             this.buttonSulje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSulje.Location = new System.Drawing.Point(3, 0);
+            this.buttonSulje.Location = new System.Drawing.Point(-3, 0);
             this.buttonSulje.Name = "buttonSulje";
             this.buttonSulje.Size = new System.Drawing.Size(100, 94);
             this.buttonSulje.TabIndex = 0;
@@ -91,7 +91,7 @@ namespace yhteystiedotProjekti
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.buttonMinimoi);
+            this.panel4.Controls.Add(this.buttonSulje);
             this.panel4.Location = new System.Drawing.Point(943, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(100, 94);
@@ -99,7 +99,7 @@ namespace yhteystiedotProjekti
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.buttonSulje);
+            this.panel3.Controls.Add(this.buttonMinimoi);
             this.panel3.Location = new System.Drawing.Point(828, 0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(100, 94);
