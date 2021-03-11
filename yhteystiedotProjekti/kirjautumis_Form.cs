@@ -198,7 +198,9 @@ namespace yhteystiedotProjekti
             {
                 if (table.Rows.Count > 0) // Tarkistan että onko tämä käyttäjä olemassa
                 {
-                    int userid = Convert.ToInt32(table.Rows[0][0].ToString());
+                    int kayttajaId = Convert.ToInt32(table.Rows[0][0].ToString());
+                    Globals.setGlobalkayttajaId(kayttajaId);
+
                     // näyttää pää formin 
                     this.DialogResult = DialogResult.OK;
                 }
