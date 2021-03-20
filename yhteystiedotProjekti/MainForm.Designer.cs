@@ -33,10 +33,10 @@ namespace yhteystiedotProjekti
             this.buttonMinimoi = new System.Windows.Forms.Button();
             this.buttonSulje = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.kayttajanimi = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -78,7 +78,7 @@ namespace yhteystiedotProjekti
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(68)))), ((int)(((byte)(173)))));
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.kayttajanimi);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
@@ -89,12 +89,24 @@ namespace yhteystiedotProjekti
             this.panel1.Size = new System.Drawing.Size(1046, 567);
             this.panel1.TabIndex = 1;
             // 
+            // kayttajanimi
+            // 
+            this.kayttajanimi.AutoSize = true;
+            this.kayttajanimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.kayttajanimi.ForeColor = System.Drawing.Color.Cornsilk;
+            this.kayttajanimi.Location = new System.Drawing.Point(102, 48);
+            this.kayttajanimi.Name = "kayttajanimi";
+            this.kayttajanimi.Size = new System.Drawing.Size(155, 16);
+            this.kayttajanimi.TabIndex = 3;
+            this.kayttajanimi.Text = "Tervetuloa (kayttajanimi)";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Red;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(93, 91);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -113,17 +125,6 @@ namespace yhteystiedotProjekti
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(100, 94);
             this.panel3.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label1.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label1.Location = new System.Drawing.Point(102, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 16);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Tervetuloa (Username)";
             // 
             // MainForm
             // 
@@ -154,6 +155,6 @@ namespace yhteystiedotProjekti
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label kayttajanimi;
     }
 }

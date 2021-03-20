@@ -185,7 +185,7 @@ namespace yhteystiedotProjekti
 
             DataTable table = new DataTable();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `kayttaja` WHERE `käyttäjänimi`= @un AND `salasana`= @pass", db.getConnection);
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `kayttaja` WHERE `kayttajanimi`= @un AND `salasana`= @pass", db.getConnection);
 
             command.Parameters.Add("@un", MySqlDbType.VarChar).Value = tbKayttajanimi.Text;
             command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = tbSalasana.Text;

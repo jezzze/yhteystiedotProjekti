@@ -61,7 +61,7 @@ namespace yhteystiedotProjekti
                 pictureBox1.Image = Image.FromStream(kuva);
 
                 //näyttää käyttäjänimen
-                label1.Text = "Tervetuloa ( " + table.Rows[0]["kayttajanimi"] + " )";
+                kayttajanimi.Text = "Tervetuloa ( " + table.Rows[0]["kayttajanimi"] + " )";
             }
         }
 
