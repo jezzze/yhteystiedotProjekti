@@ -65,6 +65,10 @@ namespace yhteystiedotProjekti
             }
         }
 
-        
+        private void labelMuokkaakayttaja_Click(object sender, EventArgs e)
+        {
+            Muokkaa_Kayttaja_Data_Form muokkaaKayttajaForm = new Muokkaa_Kayttaja_Data_Form();
+            muokkaaKayttajaForm.Show(this);
+        }
     }
 }

@@ -37,6 +37,7 @@ namespace yhteystiedotProjekti
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelMuokkaakayttaja = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -68,7 +69,7 @@ namespace yhteystiedotProjekti
             // 
             this.buttonSulje.BackColor = System.Drawing.Color.Transparent;
             this.buttonSulje.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSulje.Location = new System.Drawing.Point(-3, 0);
+            this.buttonSulje.Location = new System.Drawing.Point(3, 0);
             this.buttonSulje.Name = "buttonSulje";
             this.buttonSulje.Size = new System.Drawing.Size(100, 94);
             this.buttonSulje.TabIndex = 0;
@@ -78,6 +79,7 @@ namespace yhteystiedotProjekti
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(68)))), ((int)(((byte)(173)))));
+            this.panel1.Controls.Add(this.labelMuokkaakayttaja);
             this.panel1.Controls.Add(this.kayttajanimi);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.panel4);
@@ -94,7 +96,7 @@ namespace yhteystiedotProjekti
             this.kayttajanimi.AutoSize = true;
             this.kayttajanimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.kayttajanimi.ForeColor = System.Drawing.Color.Cornsilk;
-            this.kayttajanimi.Location = new System.Drawing.Point(102, 48);
+            this.kayttajanimi.Location = new System.Drawing.Point(102, 9);
             this.kayttajanimi.Name = "kayttajanimi";
             this.kayttajanimi.Size = new System.Drawing.Size(155, 16);
             this.kayttajanimi.TabIndex = 3;
@@ -126,6 +128,18 @@ namespace yhteystiedotProjekti
             this.panel3.Size = new System.Drawing.Size(100, 94);
             this.panel3.TabIndex = 1;
             // 
+            // labelMuokkaakayttaja
+            // 
+            this.labelMuokkaakayttaja.AutoSize = true;
+            this.labelMuokkaakayttaja.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMuokkaakayttaja.ForeColor = System.Drawing.Color.Azure;
+            this.labelMuokkaakayttaja.Location = new System.Drawing.Point(102, 73);
+            this.labelMuokkaakayttaja.Name = "labelMuokkaakayttaja";
+            this.labelMuokkaakayttaja.Size = new System.Drawing.Size(61, 18);
+            this.labelMuokkaakayttaja.TabIndex = 4;
+            this.labelMuokkaakayttaja.Text = "Muokkaa";
+            this.labelMuokkaakayttaja.Click += new System.EventHandler(this.labelMuokkaakayttaja_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,5 +170,6 @@ namespace yhteystiedotProjekti
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label kayttajanimi;
+        private System.Windows.Forms.Label labelMuokkaakayttaja;
     }
 }

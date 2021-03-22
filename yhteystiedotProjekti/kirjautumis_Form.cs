@@ -44,7 +44,7 @@ namespace yhteystiedotProjekti
 
                 //pitää tarkistaa jos käyttäjänimi on jo olemassa
                 //pitää sijoittaa uusi käyttäjä tietokantaan
-                if(!user.kayttajanimiExists(kayttajanimi)) //tarkistan että onko kääyttäjänimi olemassa
+                if (!user.kayttajanimiExists(kayttajanimi,"rekisteroi" )) //tarkistan että onko kääyttäjänimi olemassa
                 {
                     if(user.insertUser(etunimi,sukunimi,kayttajanimi,salasana,pic))
                     {
