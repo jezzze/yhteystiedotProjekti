@@ -87,7 +87,7 @@ namespace yhteystiedotProjekti
 
             if (!ryhmannimi.Trim().Equals(""))
             {
-                if (!ryhma.groupExists(ryhmannimi, "add", Globals.GlobalkayttajaId))
+                if (!ryhma.geroupExists(ryhmannimi, "add", Globals.GlobalkayttajaId))
                 {
                     if (ryhma.InsertGroup(ryhmannimi, Globals.GlobalkayttajaId))
 
@@ -115,30 +115,29 @@ namespace yhteystiedotProjekti
         }
         
 
-        //
+        
         public void getGroups()
         {
-            //ryhmän muokkaus
             comboBoxEditgroupid.DataSource = ryhma.getGroups(Globals.GlobalkayttajaId);
             comboBoxEditgroupid.DisplayMember = "nimi";
             comboBoxEditgroupid.ValueMember = "id";
-            
-            //ryhmän poisto
-            comboBoxRemovegroupid.DataSource = ryhma.getGroups(Globals.GlobalkayttajaId);
-            comboBoxRemovegroupid.DisplayMember = "nimi";
-            comboBoxRemovegroupid.ValueMember = "id";
+
+
+            comboBoxRemoveGroupId.DataSource = ryhma.getGroups(Globals.GlobalkayttajaId);
+            comboBoxRemoveGroupId.DisplayMember = "nimi";
+            comboBoxRemoveGroupId.ValueMember = "id";
         }
         // muokkaa ryhmän nimi
         private void buttonEditGroup_Click(object sender, EventArgs e)
         {
             string newGroupName = textBoxEditGroupName.Text;
-            int groupId = Convert.ToInt32(comboBoxEditgroupid.SelectedValue.ToString());
+            int ryhmaId = Convert.ToInt32(comboBoxEditgroupid.SelectedValue.ToString());
 
             if (!newGroupName.Trim().Equals(""))
             {
-                if (!group.groupExists(newGroupName, "edit", Globals.GlobalkayttajaId, groupId))
+                if (!ryhma.geroupExists(newGroupName, "edit", Globals.GlobalkayttajaId, ryhmaId))
                 {
-                    if (groupId.updateGroup(groupId, newGroupName))
+                    if (!ryhma.updateGroup(ryhmaId, newGroupName))
                     {
                         MessageBox.Show("ryhmän nimi päivitetty", "edit group", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -162,17 +161,17 @@ namespace yhteystiedotProjekti
         // poistaa valitun ryhmän
         private void buttonRemoveGroup_Click(object sender, EventArgs e)
         {
-            int groupid = Convert.ToInt32(comboBoxRemoveGroupId.SelectedValue.ToString());
+            int ryhmaid = Convert.ToInt32(comboBoxRemoveGroupId.SelectedValue.ToString());
 
             if(MessageBox.Show("oletko varma että haluat poistaa tämän ryhmän","remove group", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                if(group.deleteGroup(groupid))
+                if (ryhma.deleteGroup(ryhmaid))
                 {
-                    (MessageBox.Show("ryhmä poistettu", "remove group", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("ryhmä poistettu", "remove group", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    (MessageBox.Show("ryhmää ei poistettu", "remove group", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("ryhmää ei poistettu", "remove group", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
                 getGroups();
@@ -192,6 +191,85 @@ namespace yhteystiedotProjekti
         private void textBoxLisaaRyhmanNimi_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonAddContact_Click(object sender, EventArgs e)
+        {
+            lisaa_Kontakti_Form addContactF = new lisaa_Kontakti_Form();
+            addContactF.Show(this);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void comboBoxRemoveGroupId_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonEditContact_Click(object sender, EventArgs e)
+        {
+            Muokkaa_kontaktia_Form editContactF = new Muokkaa_kontaktia_Form();
+            editContactF.Show(this);
+        }
+
+        private void buttonSelectContact_Click(object sender, EventArgs e)
+        {
+            Valitse_kontakti_Form selectContactF = new Valitse_kontakti_Form();
+            selectContactF.ShowDialog();
+
+            try
+            {
+                int contactId = Convert.ToInt32(selectContactF.dataGridView1.CurrentRow.Cells[0].Value.ToString());
+                textBoxContactId.Text = contactId.ToString();
+               
+            catch
+            {
+
+            }
+        }
+
+        private void buttonRemoveContact_Click(object sender, EventArgs e)
+        {
+            KONTAKTI kontakti = new KONTAKTI();
+
+            try
+            {
+                if (!textBoxcontactId.Text.Trim().Equals(""))
+                {
+                    int kontaktiId = Convert.ToInt32(textBoxContactId.Text);
+
+                    if (kontakti.deletekontakti(kontaktiId))
+                    {
+                        MessageBox.Show("Kontakti poistettu", "Remove contact", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error", "Remove contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Kontaktia ei ole valittu", "Remove contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Remove contact", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonShowFullList_Click(object sender, EventArgs e)
+        {
+            Kontaktien_koko_lista_Form kontaktiListaF = new Kontaktien_koko_lista_Form();
+            kontaktiListaF.Show(this);
         }
     }       
 }

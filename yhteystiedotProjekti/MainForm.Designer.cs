@@ -35,7 +35,7 @@ namespace yhteystiedotProjekti
             this.buttonSelectContact = new System.Windows.Forms.Button();
             this.buttonRemoveContact = new System.Windows.Forms.Button();
             this.buttonEditContact = new System.Windows.Forms.Button();
-            this.buttoncontact = new System.Windows.Forms.Button();
+            this.buttonAddContact = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -80,7 +80,7 @@ namespace yhteystiedotProjekti
             this.panel2.Controls.Add(this.buttonSelectContact);
             this.panel2.Controls.Add(this.buttonRemoveContact);
             this.panel2.Controls.Add(this.buttonEditContact);
-            this.panel2.Controls.Add(this.buttoncontact);
+            this.panel2.Controls.Add(this.buttonAddContact);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.groupBox3);
@@ -106,6 +106,7 @@ namespace yhteystiedotProjekti
             this.buttonShowFullList.TabIndex = 12;
             this.buttonShowFullList.Text = "Näytä koko lista ";
             this.buttonShowFullList.UseVisualStyleBackColor = false;
+            this.buttonShowFullList.Click += new System.EventHandler(this.buttonShowFullList_Click);
             // 
             // textBoxContactId
             // 
@@ -130,6 +131,7 @@ namespace yhteystiedotProjekti
             this.buttonSelectContact.TabIndex = 11;
             this.buttonSelectContact.Text = "Valitse kontakti";
             this.buttonSelectContact.UseVisualStyleBackColor = false;
+            this.buttonSelectContact.Click += new System.EventHandler(this.buttonSelectContact_Click);
             // 
             // buttonRemoveContact
             // 
@@ -144,6 +146,7 @@ namespace yhteystiedotProjekti
             this.buttonRemoveContact.TabIndex = 10;
             this.buttonRemoveContact.Text = "Poista";
             this.buttonRemoveContact.UseVisualStyleBackColor = false;
+            this.buttonRemoveContact.Click += new System.EventHandler(this.buttonRemoveContact_Click);
             // 
             // buttonEditContact
             // 
@@ -157,19 +160,21 @@ namespace yhteystiedotProjekti
             this.buttonEditContact.TabIndex = 9;
             this.buttonEditContact.Text = "Muokkaa";
             this.buttonEditContact.UseVisualStyleBackColor = false;
+            this.buttonEditContact.Click += new System.EventHandler(this.buttonEditContact_Click);
             // 
-            // buttoncontact
+            // buttonAddContact
             // 
-            this.buttoncontact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.buttoncontact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttoncontact.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttoncontact.ForeColor = System.Drawing.Color.White;
-            this.buttoncontact.Location = new System.Drawing.Point(144, 100);
-            this.buttoncontact.Name = "buttoncontact";
-            this.buttoncontact.Size = new System.Drawing.Size(365, 77);
-            this.buttoncontact.TabIndex = 4;
-            this.buttoncontact.Text = "Lisää";
-            this.buttoncontact.UseVisualStyleBackColor = false;
+            this.buttonAddContact.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.buttonAddContact.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAddContact.ForeColor = System.Drawing.Color.White;
+            this.buttonAddContact.Location = new System.Drawing.Point(144, 100);
+            this.buttonAddContact.Name = "buttonAddContact";
+            this.buttonAddContact.Size = new System.Drawing.Size(365, 77);
+            this.buttonAddContact.TabIndex = 4;
+            this.buttonAddContact.Text = "Lisää";
+            this.buttonAddContact.UseVisualStyleBackColor = false;
+            this.buttonAddContact.Click += new System.EventHandler(this.buttonAddContact_Click);
             // 
             // label6
             // 
@@ -208,6 +213,7 @@ namespace yhteystiedotProjekti
             this.comboBoxRemoveGroupId.Name = "comboBoxRemoveGroupId";
             this.comboBoxRemoveGroupId.Size = new System.Drawing.Size(223, 28);
             this.comboBoxRemoveGroupId.TabIndex = 7;
+            this.comboBoxRemoveGroupId.SelectedIndexChanged += new System.EventHandler(this.comboBoxRemoveGroupId_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -318,7 +324,7 @@ namespace yhteystiedotProjekti
             this.buttonLisaaRyhma.Name = "buttonLisaaRyhma";
             this.buttonLisaaRyhma.Size = new System.Drawing.Size(365, 35);
             this.buttonLisaaRyhma.TabIndex = 3;
-            this.buttonLisaaRyhma.Text = "Lisää";
+            this.buttonLisaaRyhma.Text = "Lisaa";
             this.buttonLisaaRyhma.UseVisualStyleBackColor = false;
             this.buttonLisaaRyhma.Click += new System.EventHandler(this.buttonLisaaRyhma_Click);
             // 
@@ -389,6 +395,7 @@ namespace yhteystiedotProjekti
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1046, 567);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // labelRefresh
             // 
@@ -434,6 +441,7 @@ namespace yhteystiedotProjekti
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // panel4
             // 
@@ -506,7 +514,7 @@ namespace yhteystiedotProjekti
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonRemoveGroup;
         private System.Windows.Forms.Label labelRefresh;
-        private System.Windows.Forms.Button buttoncontact;
+        private System.Windows.Forms.Button buttonAddContact;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button buttonShowFullList;

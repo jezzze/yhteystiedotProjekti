@@ -99,6 +99,19 @@
     <Compile Include="kirjautumis_Form.Designer.cs">
       <DependentUpon>kirjautumis_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="KONTAKTI.cs" />
+    <Compile Include="Kontaktien_koko_lista_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kontaktien_koko_lista_Form.Designer.cs">
+      <DependentUpon>Kontaktien_koko_lista_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="lisaa_Kontakti_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="lisaa_Kontakti_Form.Designer.cs">
+      <DependentUpon>lisaa_Kontakti_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,19 +124,40 @@
     <Compile Include="Muokkaa_Kayttaja_Data_Form.Designer.cs">
       <DependentUpon>Muokkaa_Kayttaja_Data_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Muokkaa_kontaktia_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Muokkaa_kontaktia_Form.Designer.cs">
+      <DependentUpon>Muokkaa_kontaktia_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="MY_DB.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ryhma.cs" />
     <Compile Include="USER.cs" />
+    <Compile Include="Valitse_kontakti_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Valitse_kontakti_Form.Designer.cs">
+      <DependentUpon>Valitse_kontakti_Form.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="kirjautumis_Form.resx">
       <DependentUpon>kirjautumis_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kontaktien_koko_lista_Form.resx">
+      <DependentUpon>Kontaktien_koko_lista_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="lisaa_Kontakti_Form.resx">
+      <DependentUpon>lisaa_Kontakti_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Muokkaa_Kayttaja_Data_Form.resx">
       <DependentUpon>Muokkaa_Kayttaja_Data_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Muokkaa_kontaktia_Form.resx">
+      <DependentUpon>Muokkaa_kontaktia_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -134,6 +168,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Valitse_kontakti_Form.resx">
+      <DependentUpon>Valitse_kontakti_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

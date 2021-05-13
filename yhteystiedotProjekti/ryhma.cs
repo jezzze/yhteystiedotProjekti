@@ -16,7 +16,7 @@ namespace yhteystiedotProjekti
         public bool InsertGroup(string nimi, int kayttajaid)
         {
 
-            MySqlCommand command = new MySqlCommand("INSERT INTO `minunryhmat`(`nimi`, `kayttajaid`) VALUES (@gn,@uid)", mydb.getConnection);
+            MySqlCommand command = new MySqlCommand("INSERT INTO `minunryhmat`(`id`, `nimi`, `kayttajaid`) VALUES (@gn,@uid)", mydb.getConnection);
 
             command.Parameters.Add("@gn", MySqlDbType.VarChar).Value = nimi;
             command.Parameters.Add("@uid", MySqlDbType.Int32).Value = kayttajaid;
@@ -57,9 +57,6 @@ namespace yhteystiedotProjekti
                 command.Parameters.Add("@gid", MySqlDbType.Int32).Value = id;
             }
 
-
-
-
             command.Connection = mydb.getConnection;
             command.CommandText = query;
 
@@ -97,13 +94,23 @@ namespace yhteystiedotProjekti
 
         }
 
+        internal bool groupExists(string ryhmannimi, string v, int globalkayttajaId)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal bool groupExists(string ryhmannimi, string v, int globalkayttajaId, int groupId)
+        {
+            throw new NotImplementedException();
+        }
+
         //luo funtio muokataksesi ryhmän nimeä
-        public bool updateGroup(int gid, string nimi)
+        public bool updateGroup(int id, string nimi)
         {
             MySqlCommand command = new MySqlCommand("UPDATE ``minunryhmat` set `nimi`=@nimi WHERE `id`=@id", mydb.getConnection);
 
             command.Parameters.Add("@nimi", MySqlDbType.VarChar).Value = nimi;
-            command.Parameters.Add("@id", MySqlDbType.Int32).Value = gid;
+            command.Parameters.Add("@id", MySqlDbType.Int32).Value = id;
 
             mydb.avaaConnection();
             if (command.ExecuteNonQuery() == 1)
@@ -119,11 +126,11 @@ namespace yhteystiedotProjekti
         }
 
         // funktio joka poistaa ryhmän
-        public bool deleteGroup(int groupid)
+        public bool deleteGroup(int ryhmaid)
         {
             MySqlCommand command = new MySqlCommand("DELETE FROM `minunryhmat` WHERE `id`=@id",mydb.getConnection);
 
-            command.Parameters.Add("@id", MySqlDbType.Int32).Value = groupid;
+            command.Parameters.Add("@id", MySqlDbType.Int32).Value = ryhmaid;
 
             mydb.avaaConnection();
             if (command.ExecuteNonQuery() == 1)
