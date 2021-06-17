@@ -109,5 +109,10 @@ namespace yhteystiedotProjekti
                 return false;
             }
         }
+
+        internal bool deletekontakti(int kontaktiId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

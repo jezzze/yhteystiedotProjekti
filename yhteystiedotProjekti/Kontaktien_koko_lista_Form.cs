@@ -71,7 +71,7 @@ namespace yhteystiedotProjekti
             try
             {
                 KONTAKTI kontakti = new KONTAKTI();
-                int ryhmaid = (Int32)listBox1.SelectedValue
+                int ryhmaid = (Int32)listBox1.SelectedValue;
                 MySqlCommand command = new MySqlCommand("SELECT fname as 'etunimi', lname as 'sukunimi', minunryhmat.nimi as 'ryhma', puhelin, sahkoposti, osoite, kuva, INNER JOIN minunryhmat on minunkontaktit.ryhma_id = minunryhmat.id WHERE minunkontaktit.kayttajaid = @kayttajaid AND minunkontaktit.ryhma_id=@ryhmaid");
                 command.Parameters.Add("@kayttajaid", MySqlDbType.Int32).Value = Globals.GlobalkayttajaId;
                 command.Parameters.Add("@ryhmaid", MySqlDbType.Int32).Value = ryhmaid;

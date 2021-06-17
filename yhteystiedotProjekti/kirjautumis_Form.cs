@@ -218,4 +218,28 @@ namespace yhteystiedotProjekti
 
         }
     }
+
+    internal class MySqlCommand
+    {
+        private string v;
+        private MySqlConnection getConnection;
+
+        public MySqlCommand(string v)
+        {
+            this.v = v;
+        }
+
+        public MySqlCommand(string v, MySqlConnection getConnection)
+        {
+            this.v = v;
+            this.getConnection = getConnection;
+        }
+
+        public object Parameters { get; internal set; }
+
+        internal int ExecuteNonQuery()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

@@ -229,12 +229,14 @@ namespace yhteystiedotProjekti
             {
                 int contactId = Convert.ToInt32(selectContactF.dataGridView1.CurrentRow.Cells[0].Value.ToString());
                 textBoxContactId.Text = contactId.ToString();
-               
+
+            }
             catch
             {
 
             }
         }
+        
 
         private void buttonRemoveContact_Click(object sender, EventArgs e)
         {
@@ -242,7 +244,7 @@ namespace yhteystiedotProjekti
 
             try
             {
-                if (!textBoxcontactId.Text.Trim().Equals(""))
+                if (!textBoxContactId.Text.Trim().Equals(""))
                 {
                     int kontaktiId = Convert.ToInt32(textBoxContactId.Text);
 
